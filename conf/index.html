@@ -31,6 +31,12 @@
                 Second Foreground Color
                 <input id='second_foreground_color_picker' type='text' class='item-color item-color-normal' value='0xFFFFFF'>
             </label>
+            <div class='item-container-content'>
+                <label class='item'>
+                    Randomize foreground color
+                    <input id='random_checkbox' type='checkbox' class='item-toggle'>
+                </label>
+            </div>
         </div>
         <div class='item-container-footer'>
             Choose the app's colors. Note: Only available on Basalt watches that support many colors.
@@ -47,17 +53,20 @@ function getConfigData() {
     var backgroundColorPicker = document.getElementById('background_color_picker');
     var firstForegroundColorPicker = document.getElementById('first_foreground_color_picker');
     var secondForegroundColorPicker = document.getElementById('second_foreground_color_picker');
+    var randomCheckbox = document.getElementById('random_checkbox');
 
     var options = {
         'background_color': backgroundColorPicker.value,
         'first_foreground_color': firstForegroundColorPicker.value,
-        'second_foreground_color': secondForegroundColorPicker.value
+        'second_foreground_color': secondForegroundColorPicker.value,
+        'random_checkbox': randomCheckbox.checked
     };
 
     // Save for next launch
     localStorage['background_color'] = options['background_color'];
     localStorage['first_foreground_color'] = options['first_foreground_color'];
     localStorage['second_foreground_color'] = options['second_foreground_color'];
+    localStorage['random'] = options['random_checkbox'];
 
     console.log('Got options: ' + JSON.stringify(options));
     return options;
@@ -88,12 +97,14 @@ submitButton.addEventListener('click', function() {
     var backgroundColorPicker = document.getElementById('background_color_picker');
     var firstForegroundColorPicker = document.getElementById('first_foreground_color_picker');
     var secondForegroundColorPicker = document.getElementById('second_foreground_color_picker');
+    var randomCheckbox = document.getElementById('random_checkbox');
 
     // Load any previously saved configuration, if available
     if (localStorage['background_color']) {
         backgroundColorPicker.value = localStorage['background_color'];
         firstForegroundColorPicker.value = localStorage['first_foreground_color'];
         secondForegroundColorPicker.value = localStorage['second_foreground_color'];
+        randomCheckbox.checked = JSON.parse(localStorage['random']);
     }
 })();
 </script>
