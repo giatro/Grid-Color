@@ -6,6 +6,8 @@ Grid Color
 
 A colourful and customizable pebble watchface based on [Grid Lite][1]
 
+[More info][2]
+
 ## License
 
 The MIT License (MIT)
@@ -31,3 +33,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 [1]: https://github.com/pebble-hacks/lukasz-projects/tree/master/gridlite
+[2]: http://apps.getpebble.com/en_US/application/5630dfd19c667e7a78000051
