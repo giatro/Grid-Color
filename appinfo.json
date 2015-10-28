@@ -20,6 +20,12 @@
     "resources": {
         "media": [
             {
+                "file": "images/grid_logo.png",
+                "menuIcon": true,
+                "name": "LOGO",
+                "type": "png"
+            },
+            {
                 "file": "fonts/SciFly-Sans-47.ttf",
                 "name": "FONT_SCIFLY_47",
                 "type": "font"
