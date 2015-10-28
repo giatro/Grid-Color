@@ -1,0 +1,39 @@
+{
+    "appKeys": {
+        "KEY_BG_COLOR_BLUE": 2,
+        "KEY_BG_COLOR_GREEN": 1,
+        "KEY_BG_COLOR_RED": 0,
+        "KEY_ND_COLOR_BLUE": 8,
+        "KEY_ND_COLOR_GREEN": 7,
+        "KEY_ND_COLOR_RED": 6,
+        "KEY_RANDOM": 9,
+        "KEY_ST_COLOR_BLUE": 5,
+        "KEY_ST_COLOR_GREEN": 4,
+        "KEY_ST_COLOR_RED": 3
+    },
+    "capabilities": [
+        "configurable"
+    ],
+    "companyName": "gianluca.troiani@gmail.com",
+    "longName": "Grid Color",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "fonts/SciFly-Sans-47.ttf",
+                "name": "FONT_SCIFLY_47",
+                "type": "font"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "Grid Color",
+    "targetPlatforms": [
+        "basalt"
+    ],
+    "uuid": "00ea1f0b-e1a9-41a4-adc9-86cbe6235b3b",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}
