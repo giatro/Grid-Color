@@ -4,9 +4,9 @@ Grid Color
 ![Screenshot](http://giatro.github.io/Grid-Color/screenshot1.png)
 ![Screenshot](http://giatro.github.io/Grid-Color/screenshot2.png)
 
-A colourful and customizable pebble watchface based on [Grid Lite][1]
+A colourful and customizable pebble watchface based on [Grid Lite][1].
 
-[More info][2]
+[More info][2].
 
 ## License
 
