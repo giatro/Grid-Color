@@ -4,8 +4,7 @@ Grid Color
 ![Screenshot](http://giatro.github.io/Grid-Color/screenshot1.png)
 ![Screenshot](http://giatro.github.io/Grid-Color/screenshot2.png)
 
-A pebble watchface based on [Grid Lite][1]
-[1]: https://github.com/pebble-hacks/lukasz-projects/tree/master/gridlite
+A colourful and customizable pebble watchface based on [Grid Lite][1]
 
 ## License
 
@@ -30,3 +29,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+[1]: https://github.com/pebble-hacks/lukasz-projects/tree/master/gridlite
