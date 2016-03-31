@@ -15,6 +15,7 @@
         "configurable"
     ],
     "companyName": "gianluca.troiani@gmail.com",
+    "enableMultiJS": false,
     "longName": "Grid Color",
     "projectType": "native",
     "resources": {
@@ -23,7 +24,7 @@
                 "file": "images/grid_logo.png",
                 "menuIcon": true,
                 "name": "LOGO",
-                "type": "png"
+                "type": "bitmap"
             },
             {
                 "file": "fonts/SciFly-Sans-47.ttf",

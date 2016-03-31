@@ -22,6 +22,12 @@ GColor foregroundcolor;
 GColor foregroundcolor2;
 GColor backgroundcolor;
 
+uint32_t const segments[] = { 1000, 500, 1000 };
+VibePattern pat = {
+  .durations = segments,
+  .num_segments = ARRAY_LENGTH(segments),
+};
+
 static void set_color() {
   backgroundcolor = GColorBlack;
   foregroundcolor = GColorWhite;  
@@ -122,10 +128,18 @@ void draw_date(){
   for(int i=0; i<(int)(strlen(month_text)); i++){
   if(month_text[i]>96)month_text[i]-=32;
   }
-    
+  /*
+  if(!connection_service_peek_pebble_app_connection()) {
+    //vibes_long_pulse();
+    vibes_enqueue_custom_pattern(pat);
+  }
+  */
   for(int i=0; i<4; i++){
     char s[] = " ";
     s[0] = month_text[i];
+    if(!connection_service_peek_pebble_app_connection()) {
+      s[0] = 'X';   
+    }
     strcpy(grid[12+i], s);
     text_layer_set_text(time_layer[12+i], grid[12+i]);
   }
@@ -141,7 +155,6 @@ static void handle_minute_tick(struct tm *tick_time, TimeUnits units_changed) {
 }
 
 static void inbox_received_callback(DictionaryIterator *iterator, void *context) {
-  APP_LOG(APP_LOG_LEVEL_INFO, "Message recived!");
   // Color
   Tuple *color_bg_red_t = dict_find(iterator, KEY_BG_COLOR_RED);
   Tuple *color_bg_green_t = dict_find(iterator, KEY_BG_COLOR_GREEN);
@@ -196,7 +209,15 @@ static void outbox_sent_callback(DictionaryIterator *iterator, void *context) {
   APP_LOG(APP_LOG_LEVEL_INFO, "Outbox send success!");
 }
 
+static void handle_bluetooth(bool connected) {
+  vibes_enqueue_custom_pattern(pat);
+  draw_date();
+}
+
 static void init() {
+  connection_service_subscribe((ConnectionHandlers) {
+    .pebble_app_connection_handler = handle_bluetooth
+  });
   // Register callbacks
   app_message_register_inbox_received(inbox_received_callback);
   app_message_register_inbox_dropped(inbox_dropped_callback);
@@ -213,7 +234,7 @@ static void init() {
   window_set_background_color(window, backgroundcolor);
   Layer* window_layer = window_get_root_layer(window);
   GRect bounds = layer_get_frame(window_layer);
-
+  //handle_bluetooth(connection_service_peek_pebble_app_connection());
   GFont time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_SCIFLY_47));
   for(int i = 0; i<4; i++){
     for(int j = 0; j<4; j++){
@@ -237,6 +258,7 @@ static void init() {
 }
 
 static void deinit() {
+  connection_service_unsubscribe();
   for(int i = 0; i<16; i++){
     text_layer_destroy(time_layer[i]);
   }
